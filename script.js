@@ -84,4 +84,36 @@ function renderGrafico(frecuencias) {
             }]
         }
     });
+
+}
+// Operaciones con Conjuntos [cite: 20]
+function calcularConjuntos() {
+    const a = document.getElementById('conjuntoA').value.split(',').map(x => x.trim());
+    const b = document.getElementById('conjuntoB').value.split(',').map(x => x.trim());
+    
+    const setA = new Set(a);
+    const setB = new Set(b);
+
+    // Unión
+    const union = new Set([...setA, ...setB]);
+    document.getElementById('resUnion').innerText = `{ ${Array.from(union).join(', ')} }`;
+
+    // Intersección
+    const interseccion = a.filter(x => setB.has(x));
+    document.getElementById('resInter').innerText = `{ ${[...new Set(interseccion)].join(', ')} }`;
+
+    // Diferencia (A - B)
+    const diferencia = a.filter(x => !setB.has(x));
+    document.getElementById('resDif').innerText = `{ ${[...new Set(diferencia)].join(', ')} }`;
+}
+
+// Probabilidad Simple [cite: 22]
+function calcularProbabilidad() {
+    const fav = parseFloat(document.getElementById('favorables').value);
+    const tot = parseFloat(document.getElementById('totales').value);
+    
+    if (tot === 0) return alert("El total no puede ser cero");
+    
+    const resultado = (fav / tot) * 100;
+    document.getElementById('resProb').innerText = resultado.toFixed(2) + "%";
 }
