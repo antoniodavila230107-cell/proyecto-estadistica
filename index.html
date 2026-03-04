@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App Estadística - Práctica</title>
+    <title>Web App Estadística - Práctica Individual</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
         <h1>Práctica: Probabilidad y Estadística</h1>
-        <p>Modalidad: Individual</p>
+        <p>Modalidad: Individual | Publicación: GitHub Pages</p>
     </header>
 
     <main>
         <section class="card">
-            <h2>1. Ingreso de Datos (Mínimo 20)</h2>
+            <h2>1. Ingreso de Datos</h2>
             <div class="input-group">
                 <input type="text" id="dataInput" placeholder="Ej: 5, 8, 12, 5, 10...">
                 <div class="buttons">
@@ -37,7 +37,7 @@
             </section>
 
             <section class="card">
-                <h2>Tabla de Frecuencias</h2>
+                <h2>Tabla de Frecuencias (fi, fr, Fi, Fr)</h2>
                 <div class="table-container">
                     <table id="tablaFrecuencias">
                         <thead>
@@ -56,53 +56,62 @@
         </div>
 
         <section class="card">
-            <h2>Visualización de Datos</h2>
+            <h2>Visualización: Histograma, Pareto y Ojiva</h2>
             <div class="chart-container">
                 <canvas id="mainChart"></canvas>
             </div>
         </section>
 
-        <section class="card">
-            <h2>Probabilidad y Conteo</h2>
-            <div class="prob-grid">
-                <div>
+        <div class="grid">
+            <section class="card">
+                <h2>Permutaciones y Combinaciones</h2>
+                <div class="prob-group">
                     <label>n (Total):</label>
                     <input type="number" id="nVal" value="5">
                     <label>r (Muestra):</label>
                     <input type="number" id="rVal" value="2">
                     <button onclick="calcularCombinatoria()">Calcular</button>
-                </div>
-                <div id="combinatoriaResult">
                     <p>Permutaciones (nPr): <span id="resPerm">-</span></p>
                     <p>Combinaciones (nCr): <span id="resComb">-</span></p>
                 </div>
+            </section>
+
+            <section class="card">
+                <h2>Probabilidad Básica</h2>
+                <div class="prob-group">
+                    <input type="number" id="favorables" placeholder="Favorables">
+                    <input type="number" id="totales" placeholder="Totales">
+                    <button onclick="calcularProbabilidad()">Calcular P(E)</button>
+                    <p>Resultado: <span id="resProb">-</span></p>
+                </div>
+            </section>
+        </div>
+
+        <section class="card">
+            <h2>Operaciones con Conjuntos</h2>
+            <div class="input-group">
+                <input type="text" id="conjuntoA" placeholder="Conjunto A (1,2,3)">
+                <input type="text" id="conjuntoB" placeholder="Conjunto B (3,4,5)">
+                <button onclick="calcularConjuntos()">Calcular Conjuntos</button>
+            </div>
+            <p>Unión (A ∪ B): <span id="resUnion">-</span></p>
+            <p>Intersección (A ∩ B): <span id="resInter">-</span></p>
+            <p>Diferencia (A - B): <span id="resDif">-</span></p>
+        </section>
+
+        <section class="card">
+            <h2>Regla Multiplicativa y Diagrama de Árbol</h2>
+            <div class="input-group">
+                <input type="number" id="probA" step="0.1" placeholder="P(A) Ej: 0.6">
+                <input type="number" id="probB" step="0.1" placeholder="P(B|A) Ej: 0.4">
+                <button onclick="calcularReglaMultiplicativa()">Generar Árbol</button>
+            </div>
+            <div id="treeVisual" style="font-family: monospace; background: #f1f5f9; padding: 15px; border-radius: 8px; margin-top: 10px; white-space: pre;">
+                Diagrama de Árbol...
             </div>
         </section>
-        <section class="card">
-    <h2>Operaciones con Conjuntos</h2>
-    <div class="input-group">
-        <input type="text" id="conjuntoA" placeholder="Conjunto A (ej: 1,2,3)">
-        <input type="text" id="conjuntoB" placeholder="Conjunto B (ej: 3,4,5)">
-        <button onclick="calcularConjuntos()">Calcular Conjuntos</button>
-    </div>
-    <div id="conjuntosResult">
-        <p>Unión (A ∪ B): <span id="resUnion">-</span></p>
-        <p>Intersección (A ∩ B): <span id="resInter">-</span></p>
-        <p>Diferencia (A - B): <span id="resDif">-</span></p>
-    </div>
-</section>
-<section class="card">
-    <h2>Probabilidad Básica</h2>
-    <div class="input-group">
-        <input type="number" id="favorables" placeholder="Casos favorables">
-        <input type="number" id="totales" placeholder="Casos totales">
-        <button onclick="calcularProbabilidad()">Calcular P(E)</button>
-    </div>
-    <p>Resultado: <span id="resProb">-</span></p>
-</section>
     </main>
 
     <script src="script.js"></script>
 </body>
-
 </html>
