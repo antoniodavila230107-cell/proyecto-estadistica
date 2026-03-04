@@ -78,8 +78,31 @@
                 </div>
             </div>
         </section>
+        <section class="card">
+    <h2>Operaciones con Conjuntos</h2>
+    <div class="input-group">
+        <input type="text" id="conjuntoA" placeholder="Conjunto A (ej: 1,2,3)">
+        <input type="text" id="conjuntoB" placeholder="Conjunto B (ej: 3,4,5)">
+        <button onclick="calcularConjuntos()">Calcular Conjuntos</button>
+    </div>
+    <div id="conjuntosResult">
+        <p>Unión (A ∪ B): <span id="resUnion">-</span></p>
+        <p>Intersección (A ∩ B): <span id="resInter">-</span></p>
+        <p>Diferencia (A - B): <span id="resDif">-</span></p>
+    </div>
+</section>
+<section class="card">
+    <h2>Probabilidad Básica</h2>
+    <div class="input-group">
+        <input type="number" id="favorables" placeholder="Casos favorables">
+        <input type="number" id="totales" placeholder="Casos totales">
+        <button onclick="calcularProbabilidad()">Calcular P(E)</button>
+    </div>
+    <p>Resultado: <span id="resProb">-</span></p>
+</section>
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
