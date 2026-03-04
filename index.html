@@ -3,112 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App Estadística - Práctica Individual</title>
+    <title>Web App Probabilidad y Estadística</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-        <h1>Práctica: Probabilidad y Estadística</h1>
-        <p>Modalidad: Individual | Publicación: GitHub Pages</p>
+        <h1>Práctica Individual: Probabilidad y Estadística</h1>
+        <div id="status" style="background: #fee2e2; color: #991b1b; padding: 5px; text-align: center;">
+            Estado del Script: ❌ NO CARGADO (Verifica el nombre del archivo script.js)
+        </div>
     </header>
 
     <main>
         <section class="card">
-            <h2>1. Ingreso de Datos</h2>
+            <h2>1. Ingreso de Datos (mínimo 20) [cite: 12, 32]</h2>
             <div class="input-group">
-                <input type="text" id="dataInput" placeholder="Ej: 5, 8, 12, 5, 10...">
+                <input type="text" id="dataInput" placeholder="Ej: 10, 20, 15, 30...">
                 <div class="buttons">
-                    <button onclick="procesarManual()">Calcular Datos</button>
-                    <button onclick="generarAleatorios()" class="secondary">Generar 20 Aleatorios</button>
+                    <button onclick="procesarManual()">Calcular Manual</button>
+                    <button onclick="generarAleatorios()">Generar 20 Aleatorios </button>
                 </div>
             </div>
         </section>
 
         <div class="grid">
             <section class="card">
-                <h2>Medidas de Tendencia</h2>
-                <div id="statsResult">
-                    <p>Media: <span id="resMedia">-</span></p>
-                    <p>Mediana: <span id="resMediana">-</span></p>
-                    <p>Moda: <span id="resModa">-</span></p>
-                    <p>Rango: <span id="resRango">-</span></p>
-                </div>
+                <h2>Cálculos Estadísticos [cite: 13, 32]</h2>
+                <p>Media: <span id="resMedia">-</span></p>
+                <p>Mediana: <span id="resMediana">-</span></p>
+                <p>Moda: <span id="resModa">-</span></p>
+                <p>Rango: <span id="resRango">-</span></p>
             </section>
 
             <section class="card">
-                <h2>Tabla de Frecuencias (fi, fr, Fi, Fr)</h2>
-                <div class="table-container">
-                    <table id="tablaFrecuencias">
-                        <thead>
-                            <tr>
-                                <th>Dato (x)</th>
-                                <th>fi</th>
-                                <th>fr</th>
-                                <th>Fi</th>
-                                <th>Fr</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+                <h2>Tabla de Frecuencias (fi, fr, Fi, Fr) [cite: 15, 32]</h2>
+                <table id="tablaFrecuencias">
+                    <thead>
+                        <tr><th>x</th><th>fi</th><th>fr</th><th>Fi</th><th>Fr</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </section>
         </div>
 
         <section class="card">
-            <h2>Visualización: Histograma, Pareto y Ojiva</h2>
-            <div class="chart-container">
-                <canvas id="mainChart"></canvas>
-            </div>
+            <h2>Gráficos: Histograma, Pareto y Ojiva [cite: 16, 17, 18, 19, 32]</h2>
+            <canvas id="mainChart"></canvas>
         </section>
 
         <div class="grid">
             <section class="card">
-                <h2>Permutaciones y Combinaciones</h2>
-                <div class="prob-group">
-                    <label>n (Total):</label>
-                    <input type="number" id="nVal" value="5">
-                    <label>r (Muestra):</label>
-                    <input type="number" id="rVal" value="2">
-                    <button onclick="calcularCombinatoria()">Calcular</button>
-                    <p>Permutaciones (nPr): <span id="resPerm">-</span></p>
-                    <p>Combinaciones (nCr): <span id="resComb">-</span></p>
-                </div>
+                <h2>Permutaciones y Combinaciones [cite: 25, 32]</h2>
+                <input type="number" id="nVal" placeholder="n" value="5">
+                <input type="number" id="rVal" placeholder="r" value="2">
+                <button onclick="calcularCombinatoria()">Calcular</button>
+                <p>nPr: <span id="resPerm">-</span> | nCr: <span id="resComb">-</span></p>
             </section>
 
             <section class="card">
-                <h2>Probabilidad Básica</h2>
-                <div class="prob-group">
-                    <input type="number" id="favorables" placeholder="Favorables">
-                    <input type="number" id="totales" placeholder="Totales">
-                    <button onclick="calcularProbabilidad()">Calcular P(E)</button>
-                    <p>Resultado: <span id="resProb">-</span></p>
-                </div>
-            </section>
-        </div>
-
-        <section class="card">
-            <h2>Operaciones con Conjuntos</h2>
-            <div class="input-group">
+                <h2>Probabilidad y Conjuntos [cite: 20, 22, 32]</h2>
                 <input type="text" id="conjuntoA" placeholder="Conjunto A (1,2,3)">
                 <input type="text" id="conjuntoB" placeholder="Conjunto B (3,4,5)">
-                <button onclick="calcularConjuntos()">Calcular Conjuntos</button>
-            </div>
-            <p>Unión (A ∪ B): <span id="resUnion">-</span></p>
-            <p>Intersección (A ∩ B): <span id="resInter">-</span></p>
-            <p>Diferencia (A - B): <span id="resDif">-</span></p>
-        </section>
+                <button onclick="calcularConjuntos()">Operar Conjuntos</button>
+                <p>Intersección: <span id="resInter">-</span></p>
+            </section>
+        </div>
 
         <section class="card">
-            <h2>Regla Multiplicativa y Diagrama de Árbol</h2>
-            <div class="input-group">
-                <input type="number" id="probA" step="0.1" placeholder="P(A) Ej: 0.6">
-                <input type="number" id="probB" step="0.1" placeholder="P(B|A) Ej: 0.4">
-                <button onclick="calcularReglaMultiplicativa()">Generar Árbol</button>
-            </div>
-            <div id="treeVisual" style="font-family: monospace; background: #f1f5f9; padding: 15px; border-radius: 8px; margin-top: 10px; white-space: pre;">
-                Diagrama de Árbol...
-            </div>
+            <h2>Regla Multiplicativa y Árbol Funcional [cite: 23, 32]</h2>
+            <input type="number" id="pA" step="0.1" placeholder="P(A)">
+            <input type="number" id="pBA" step="0.1" placeholder="P(B|A)">
+            <button onclick="calcularArbol()">Generar Árbol</button>
+            <pre id="treeDisplay" style="background: #f1f5f9; padding: 10px;"></pre>
         </section>
     </main>
 
